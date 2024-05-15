@@ -111,7 +111,7 @@ Mock.mock("/add", "post", (config) => {
       message: "商品Id已存在",
     };
   }
-  data.data.push(body);
+  data.data.unshift(body);
   localStorage.setItem("list", JSON.stringify(data.data));
   return {
     code: 200,

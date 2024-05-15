@@ -40,7 +40,7 @@
                 <a-input v-model="form.goodsName" :disabled="buttonStatus === 'look'" />
             </a-form-item>
             <a-form-item label="创建时间">
-                <a-input v-model="form.createTime" :disabled="buttonStatus === 'look'" />
+                <a-date-picker class="w-full" v-model="form.createTime" :disabled="buttonStatus === 'look'" />
             </a-form-item><a-form-item label="库存量">
                 <a-input v-model="form.inventory" :disabled="buttonStatus === 'look'" />
             </a-form-item>
