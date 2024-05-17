@@ -14,7 +14,7 @@
                 <a-form ref="formRef" :model="form" class="w-full" @submit="handleSubmit">
                     <a-form-item field="username" label="用户"
                         :rules="[{ required: true, message: '请输入用户名' }, { minLength: 5, message: '用户名最少为5位' }]"
-                        :validate-trigger="['change', 'input']">
+                        :validate-trigger="['change', 'input', 'blur']">
                         <a-input v-model="form.username" placeholder="用户名">
                             <template #prefix>
                                 <icon-user />
@@ -23,7 +23,7 @@
                     </a-form-item>
                     <a-form-item field="password" label="密码"
                         :rules="[{ required: true, message: '请输入用密码' }, { minLength: 5, message: '密码最短为6位' }]"
-                        :validate-trigger="['change', 'input']">
+                        :validate-trigger="['change', 'input', 'blur']">
                         <a-input-password v-model="form.password" placeholder="密码">
                             <template #prefix>
                                 <icon-lock />
@@ -42,7 +42,6 @@
 import { reactive, ref, } from "vue";
 import { LoginApi } from "@/api/index";
 import { Message } from '@arco-design/web-vue';
-import router from "@/router";
 import { useStore } from "@/stores";
 const store = useStore()
 let formRef = ref(null)

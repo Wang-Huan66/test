@@ -12,7 +12,7 @@
         </a-input>
         <a-date-picker class="w-1/4" v-model="requestData.createTime" />
         <a-button type="secondary" @click="getList">搜索</a-button>
-        <a-button type="primary" @click="add">添加</a-button>
+        <a-button type="primary" @click="add" v-permission="['add', 'all']">添加</a-button>
     </div>
     <a-table :data="list" :pagination="pagination">
         <template #columns>
@@ -23,8 +23,8 @@
             <a-table-column title="操作">
                 <template #cell="{ record }">
                     <a-button @click="look(record)">查看</a-button>
-                    <a-button status="warning" @click="edit(record)">编辑</a-button>
-                    <a-button status="danger" @click="del(record.goodsId)">删除</a-button>
+                    <a-button status="warning" v-permission="['edit', 'all']" @click="edit(record)">编辑</a-button>
+                    <a-button status="danger" v-permission="['all']" @click="del(record.goodsId)">删除</a-button>
                 </template>
             </a-table-column>
         </template>
